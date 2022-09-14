@@ -2,14 +2,39 @@ const inquirer = require('inquirer')
 
 
 
-
-// classes
-
-
-
-
 // prompts
 
+const questions = [{
+    type: 'input',
+    message: 'What is your team managers name?',
+    name: 'managerName',
+},
+{
+    type: 'input',
+    message: 'What is your team managers employee ID?',
+    name: 'managerId',
+},
+{
+    type: 'input',
+    message: 'What is your team managers email address?',
+    name: 'managerEmail',
+},
+{
+    type: 'input',
+    message: 'What is your team managers office number?',
+    name: 'managerOffice',
+},
+{
+    type: 'list',
+    message: 'Add an engineer, intern or finish building your team.',
+    name: 'newEmployee',
+    choices: ['Engineer', 'Intern', 'Done'],
+},
+]
+
+
+
+// ask questions
 
 // write file function
 
