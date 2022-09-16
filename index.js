@@ -150,6 +150,8 @@ var writeToFile = function (team) {
     
     </html>`
 
+    // Writing file, program should be complete.
+
     fs.writeFile(fileLocation, fileContent, err => {
         if (err) {
             console.error(err);
@@ -162,22 +164,21 @@ var writeToFile = function (team) {
 // Creating employees and cards, appending together to string together the HTML
 
 
-// todo: addicons!
-
 var createManager = function (content) {
 
     const manager = new Manager(content.managerName, content.managerId, content.managerEmail, content.managerOffice)
 
     var managerHTML = `
-    <div class="card" style="width: 18rem; height: 20rem; margin: 20px;display:inline-block;">
+    <div class="card" style="width: 18rem; height: 18rem; margin: 20px;display:inline-block;">
     <div class="card-header" style = 'background-color:cornflowerblue'>
-    <h3 style='font-weight:bold;'>${manager.getRole()}: ${manager.employeeName}<i class="fas fa-suitcase-rolling"style="margin:5px;"></i></h3>
+    <h3 style='font-weight:bold;'><i class="fas fa-suitcase-rolling"style="margin:5px;"></i>${manager.getRole()}:</h3> 
+    <span style='font-weight:bold;'>${manager.getName()}</span>
   </div>
   <div class="card-body" style = 'background-color:rgb(49, 177, 177); height:100%;'>
   <ul class="list-group list-group-flush"style = 'background-color:aliceblue'>
-    <li class="list-group-item">ID: <span style = 'color:blue;'>${manager.id}</span</li>
-    <li class="list-group-item">Email: <a href = "mailto:${manager.email}">${manager.email}</a></li>
-    <li class="list-group-item">Office Number: <span style = 'color:blue;'>${manager.office}</span></li>
+    <li class="list-group-item">ID: <span style = 'color:blue;'>${manager.getId()}</span</li>
+    <li class="list-group-item">Email: <a href = "mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
+    <li class="list-group-item">Office Number: <span style = 'color:blue;'>${manager.getOffice()}</span></li>
   </ul>
   </div>
 </div>`
@@ -198,14 +199,15 @@ var createEngineer = function (content) {
     const engineer = new Engineer(content.engineerName, content.engineerId, content.engineerEmail, content.engineerGithub)
 
     var engineerHTML = `
-    <div class="card" style="width: 18rem; height: 20rem; margin: 20px;display:inline-block;">
+    <div class="card" style="width: 18rem; height: 18rem; margin: 20px;display:inline-block;">
     <div class="card-header" style = 'background-color:cornflowerblue'>
-    <h3>${engineer.getRole()}: ${engineer.employeeName}<i class="fas fa-wrench"style="margin:5px;"></i></h3>
+    <h3><i class="fas fa-wrench"style="margin:5px;"></i>${engineer.getRole()}:</h3>
+    <span style='font-weight:bold;'>${engineer.getName()}</span>
   </div>
   <div class="card-body" style = 'background-color:rgb(49, 177, 177); height:100%;'>
   <ul class="list-group list-group-flush" style = 'background-color:aliceblue'>
-    <li class="list-group-item">ID: <span style = 'color:blue;'>${engineer.id}</span></li>
-    <li class="list-group-item">Email: <a href = "mailto:${engineer.email}">${engineer.email}</a></span></li>
+    <li class="list-group-item">ID: <span style = 'color:blue;'>${engineer.getId()}</span></li>
+    <li class="list-group-item">Email: <a href = "mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></span></li>
     <li class="list-group-item">Github Account: <a href = 'https://github.com/${engineer.getGithub()}'>${engineer.getGithub()}</a></span></li>
   </ul>
   </div>
@@ -229,14 +231,15 @@ var createIntern = function (content) {
     const intern = new Intern(content.internName, content.internId, content.internEmail, content.internSchool)
 
     var internHTML = `
-    <div class="card" style="width: 18rem; height: 20rem; margin: 20px;display:inline-block;">
+    <div class="card" style="width: 18rem; height: 18rem; margin: 20px;display:inline-block;">
     <div class="card-header" style = 'background-color:cornflowerblue'>
-    <h3>${intern.getRole()}: ${intern.employeeName}<i class="fas fa-user-graduate"style="margin:5px;"></i></h3>
+    <h3><i class="fas fa-user-graduate"style="margin:5px;"></i>${intern.getRole()}:</h3>
+    <span style='font-weight:bold;'>${intern.getName()}</span>
   </div>
   <div class="card-body" style = 'background-color:rgb(49, 177, 177); height:100%;'>
   <ul class="list-group list-group-flush" style = 'background-color:aliceblue'>
-    <li class="list-group-item">ID: <span style = 'color:blue;'>${intern.id}</span></li>
-    <li class="list-group-item">Email: <a href="mailto:${intern.email}">${intern.email}</a></li>
+    <li class="list-group-item">ID: <span style = 'color:blue;'>${intern.getId()}</span></li>
+    <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
     <li class="list-group-item">School: <span style = 'color:blue;'>${intern.getSchool()}</span></li>
   </ul>
   </div>
@@ -260,23 +263,3 @@ function init() {
 }
 
 init();
-
-
-
-
-
-
-
-
-// index template
-
-// <!DOCTYPE html>
-// <html lang="en">
-// <head>
-//   
-//   <title>Document</title>
-// </head>
-// <body>
-
-// </body>
-// </html>
